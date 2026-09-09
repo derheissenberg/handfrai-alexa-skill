@@ -1,7 +1,7 @@
 'use strict';
 /**
  * Handfrai \u2014 single-file build for the Alexa-hosted code editor. GENERATED, do not edit.
- * Source: skill/alexa-handfrai/lambda/ \u2014 rebuild with tools/build-console-bundle.js
+ * Source: lambda/ \u2014 rebuild with tools/build-console-bundle.js
  *
  * Paste this as index.js, keep package.json, and create config.local.js next to it with
  * your key (see config.local.example.js). Everything else is inlined below.

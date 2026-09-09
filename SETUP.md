@@ -50,8 +50,8 @@ This tells Alexa what to listen for.
 
 1. **Where:** top tab bar → **Build**. Then in the left sidebar: **Custom → Interaction Model → JSON Editor**. The screen splits — JSON on the left, an **Utterance Profiler** panel on the right.
 2. Open the matching file from this repository and copy **all** of it:
-    - English: `skill/alexa-handfrai/skill-package/interactionModels/custom/en-US.json`
-    - German: `skill/alexa-handfrai/skill-package/interactionModels/custom/de-DE.json`
+    - English: `skill-package/interactionModels/custom/en-US.json`
+    - German: `skill-package/interactionModels/custom/de-DE.json`
 3. Select everything in the console's editor, delete it, and paste the file in its place.
 4. **Top right of that screen:** click **Save**, then **Build skill**. (Not *Evaluate model* — that only tests an already-built model.) The build takes one to three minutes; the header shows "Last successful build" when it is done.
 5. **Check it understood you.** In the right-hand **Utterance Profiler** panel, bottom edge, type `was ist die Hauptstadt von Portugal` into *"Type or say an utterance…"* and press **Submit**. It must resolve to **AskIntent** with the slot **query** filled. This tests only speech-to-intent mapping — no code runs, no API key needed, no answer is produced.
@@ -63,17 +63,17 @@ This tells Alexa what to listen for.
 ## Step 4 — Put the code in place (10 minutes)
 
 1. In the left sidebar, open the **Code** tab. You will see a small starter project with `index.js` and `package.json`.
-2. **The short way — one file instead of nine.** On your Mac, copy the whole single-file build to the clipboard:
+2. **The short way — one file instead of nine.** From the root of this repository, copy the whole single-file build to the clipboard (`pbcopy` on macOS; use `xclip -sel c <` on Linux, or just open the file and select all):
 
-    ```
-    pbcopy < ~/Projects/Handfrai/skill/alexa-handfrai/dist/index.console.js
+    ```bash
+    pbcopy < dist/index.console.js
     ```
 
     In the console's file tree click **`index.js`**, select all in the editor (`cmd+A`), and paste. That file is a generated build of the whole skill — rebuild it any time with `npm run bundle`. It is deliberately **pure ASCII**: umlauts and phonetic symbols are stored as `\uXXXX` escapes, because somewhere between clipboard, browser editor and deploy the UTF-8 was being mangled and the German voice spelled out every word containing an umlaut.
 
-    **Also replace `package.json`** with `skill/alexa-handfrai/dist/package.json` (`pbcopy < ~/Projects/Handfrai/skill/alexa-handfrai/dist/package.json`). It lists only the Alexa SDK — **not** `@anthropic-ai/sdk`, which Alexa-hosted's Node is too old for and which the HTTP transport makes unnecessary. Then skip to point 3.
+    **Also replace `package.json`** with this repository's `dist/package.json` (`pbcopy < dist/package.json`). It lists only the Alexa SDK — **not** `@anthropic-ai/sdk`, which Alexa-hosted's Node is too old for and which the HTTP transport makes unnecessary. Then skip to point 3.
 
-    **The long way**, if you would rather keep the same file layout as the repository: recreate these files from `skill/alexa-handfrai/lambda/`, using the file-tree icons in the console to create folders and files, and pasting each file's contents:
+    **The long way**, if you would rather keep the same file layout as the repository: recreate these files from `lambda/`, using the file-tree icons in the console to create folders and files, and pasting each file's contents:
 
     ```
     index.js
@@ -144,7 +144,7 @@ No code change is needed: the skill answers in the language of the request, and 
 
 Alexa hangs up if the whole answer takes more than about eight seconds. Which Claude model you use is therefore a timing decision, and it should be made with numbers rather than taste.
 
-On your laptop, from `skill/alexa-handfrai/lambda`:
+On your laptop, from `lambda/`:
 
 ```bash
 npm install
@@ -216,7 +216,7 @@ Only worth doing when you need proper logs, control over the region, or you are 
 5. Build the upload package on your laptop:
 
     ```bash
-    cd skill/alexa-handfrai && ./tools/package-lambda.sh
+    ./tools/package-lambda.sh
     ```
 
     Upload the resulting `handfrai-lambda.zip` under **Code → Upload from → .zip file**.
@@ -224,7 +224,7 @@ Only worth doing when you need proper logs, control over the region, or you are 
 7. Copy the function's **ARN** from the top right of the Lambda page.
 8. In the Alexa console: **Build → Endpoint → AWS Lambda ARN**, paste it into **Default Region**, and save. (This requires a skill created with "Provision your own" hosting rather than Alexa-hosted.)
 
-The ASK CLI can also do all of this in one command if you prefer: `ask-resources.json` in `skill/alexa-handfrai/` is already configured for `ask deploy`.
+The ASK CLI can also do all of this in one command if you prefer: `ask-resources.json` in the repository root is already configured for `ask deploy`.
 
 ---
 
