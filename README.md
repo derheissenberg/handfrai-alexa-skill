@@ -7,11 +7,16 @@ and it tells you what the session cost in tokens.
 English and German both ship. Setup takes about 45 minutes and needs no AWS account.
 
 ```
-"Alexa, open hand fry."
-  → "Handfrai here. What would you like to ask?"
-  → you ask anything, in plain language, without repeating the name
+"Alexa, öffne Hand frei."
+  → "Hallo, ich bin Handfrai. Was möchtest du fragen?"
+  → you keep asking, in plain language, without repeating the name
   → your own Claude answers in a few short sentences
 ```
+
+**The invocation is two words, and that is also how you say the name.** German
+`hand frei`, English `hand fry` — both land on *Handfrai*, which is what the skill is
+called everywhere a human reads it. Amazon rejects one-word invocation names without
+trademark proof, and two words transcribe far more reliably anyway.
 
 **Start here: [SETUP.md](SETUP.md)** — written for someone who has never used AWS and has never
 published an Alexa skill.
