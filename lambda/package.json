@@ -1,0 +1,22 @@
+{
+  "name": "handfrai-alexa-lambda",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Handfrai \u2014 Alexa skill backend: voice question \u2192 your own AI (Claude first) \u2192 short spoken answer",
+  "main": "index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "smoke": "node scripts/smoke-live.js",
+    "bundle": "node ../tools/build-console-bundle.js"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0",
+    "ask-sdk-core": "^2.14.0",
+    "ask-sdk-model": "^1.86.0"
+  }
+}

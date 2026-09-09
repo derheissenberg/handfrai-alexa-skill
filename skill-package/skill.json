@@ -1,0 +1,72 @@
+{
+  "manifest": {
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Handfrai",
+          "summary": "Ask your own AI out loud and hear a short answer back.",
+          "description": "Handfrai connects your own AI account to Alexa. Ask a question out loud and your own model answers in a few short sentences, written to be heard rather than read.\n\nYou keep asking without repeating the name — the conversation stays open until you say stop, and Handfrai tells you how many tokens the session used.\n\nBring your own AI: your questions go from Alexa straight to the provider you already pay for, using your own API key. Handfrai never sells you tokens and never holds a model of its own.\n\nHandfrai does not give medical, legal or financial advice. Answers come from a general-purpose AI model and can be wrong — check anything that matters.",
+          "examplePhrases": [
+            "Alexa, open Handfrai",
+            "Alexa, ask Handfrai what is the capital of Portugal",
+            "Alexa, ask Handfrai to explain compound interest"
+          ],
+          "keywords": ["ai", "assistant", "claude", "questions", "answers", "chat", "productivity"],
+          "smallIconUri": "file://assets/icon-108.png",
+          "largeIconUri": "file://assets/icon-512.png",
+          "privacyPolicyUrl": "https://handfrai.com/privacy",
+          "termsOfUseUrl": "https://handfrai.com/terms"
+        },
+        "de-DE": {
+          "name": "Handfrai",
+          "summary": "Stell deiner eigenen KI eine Frage und hör die Antwort.",
+          "description": "Handfrai verbindet dein eigenes KI-Konto mit Alexa. Du stellst eine Frage, und dein eigenes Modell antwortet in wenigen kurzen Sätzen — geschrieben zum Hören, nicht zum Lesen.\n\nDu kannst weiterfragen, ohne den Namen zu wiederholen: Das Gespräch bleibt offen, bis du Stopp sagst. Danach nennt Handfrai die Anzahl der verbrauchten Token.\n\nDeine eigene KI: Deine Fragen gehen von Alexa direkt zu dem Anbieter, den du ohnehin bezahlst, über deinen eigenen API-Schlüssel. Handfrai verkauft keine Token und betreibt kein eigenes Modell.\n\nHandfrai gibt keine medizinische, rechtliche oder finanzielle Beratung. Die Antworten stammen von einem allgemeinen KI-Modell und können falsch sein — prüfe alles, worauf es ankommt.",
+          "examplePhrases": [
+            "Alexa, öffne Hand frei",
+            "Alexa, frag Hand frei was ist die Hauptstadt von Portugal",
+            "Alexa, frag Hand frei erkläre mir Zinseszins"
+          ],
+          "keywords": ["ki", "assistent", "claude", "fragen", "antworten", "produktivität"],
+          "smallIconUri": "file://assets/icon-108.png",
+          "largeIconUri": "file://assets/icon-512.png",
+          "privacyPolicyUrl": "https://handfrai.com/privacy",
+          "termsOfUseUrl": "https://handfrai.com/terms"
+        }
+      },
+      "isAvailableWorldwide": false,
+      "distributionCountries": ["US", "GB", "DE", "AT", "IE"],
+      "distributionMode": "PUBLIC",
+      "category": "PRODUCTIVITY",
+      "testingInstructions": "The skill calls the Anthropic API with an API key configured by the skill owner (see README). No account linking, no personal data collected. To test: say 'Alexa, open Handfrai', then ask any question, for example 'what is the capital of Portugal'. The conversation stays open; say 'stop' to end it and hear the session's token usage."
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "REPLACE_WITH_LAMBDA_ARN_OR_LEAVE_TO_ALEXA_HOSTED"
+        },
+        "interfaces": []
+      }
+    },
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "https://handfrai.com/privacy",
+          "termsOfUseUrl": "https://handfrai.com/terms"
+        },
+        "de-DE": {
+          "privacyPolicyUrl": "https://handfrai.com/privacy",
+          "termsOfUseUrl": "https://handfrai.com/terms"
+        }
+      }
+    },
+    "manifestAttributes": {
+      "interfaces": []
+    }
+  }
+}

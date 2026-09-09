@@ -1,0 +1,90 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "hand fry",
+      "modelConfiguration": { "fallbackIntentSensitivity": { "level": "LOW" } },
+      "intents": [
+        { "name": "AMAZON.CancelIntent", "samples": [] },
+        { "name": "AMAZON.HelpIntent", "samples": [] },
+        { "name": "AMAZON.StopIntent", "samples": [] },
+        { "name": "AMAZON.NavigateHomeIntent", "samples": [] },
+        { "name": "AMAZON.FallbackIntent", "samples": [] },
+        {
+          "name": "AskIntent",
+          "slots": [
+            {
+              "name": "query",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{query}"
+              ]
+            }
+          ],
+          "samples": [
+            "ask {query}",
+            "asking {query}",
+            "question {query}",
+            "tell me {query}",
+            "tell me about {query}",
+            "explain {query}",
+            "explain to me {query}",
+            "what is {query}",
+            "what are {query}",
+            "what was {query}",
+            "who is {query}",
+            "who was {query}",
+            "when is {query}",
+            "when was {query}",
+            "where is {query}",
+            "why is {query}",
+            "why does {query}",
+            "how do i {query}",
+            "how does {query}",
+            "how can i {query}",
+            "how much {query}",
+            "how many {query}",
+            "can you {query}",
+            "could you {query}",
+            "help me with {query}",
+            "i want to know {query}",
+            "i would like to know {query}",
+            "give me {query}",
+            "find out {query}",
+            "about {query}",
+            "for {query}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "AskIntent",
+          "delegationStrategy": "SKILL_RESPONSE",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "query",
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": { "elicitation": "Elicit.Slot.AskIntent.query" }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.AskIntent.query",
+        "variations": [
+          { "type": "PlainText", "value": "What would you like to ask?" },
+          { "type": "PlainText", "value": "What is your question?" }
+        ]
+      }
+    ]
+  }
+}

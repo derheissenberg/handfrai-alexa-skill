@@ -1,0 +1,10 @@
+{
+  "name": "handfrai-alexa-hosted",
+  "version": "0.3.0",
+  "description": "Handfrai — package.json for an Alexa-hosted skill. Only the Alexa SDK; Claude is called over node:https.",
+  "main": "index.js",
+  "dependencies": {
+    "ask-sdk-core": "^2.14.0",
+    "ask-sdk-model": "^1.86.0"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "hand frei",
+      "modelConfiguration": { "fallbackIntentSensitivity": { "level": "LOW" } },
+      "intents": [
+        { "name": "AMAZON.CancelIntent", "samples": [] },
+        { "name": "AMAZON.HelpIntent", "samples": [] },
+        { "name": "AMAZON.StopIntent", "samples": [] },
+        { "name": "AMAZON.NavigateHomeIntent", "samples": [] },
+        { "name": "AMAZON.FallbackIntent", "samples": [] },
+        {
+          "name": "AskIntent",
+          "slots": [
+            {
+              "name": "query",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{query}"
+              ]
+            }
+          ],
+          "samples": [
+            "frag {query}",
+            "frage {query}",
+            "frag mal {query}",
+            "sag mir {query}",
+            "erklär mir {query}",
+            "erkläre {query}",
+            "erkläre mir {query}",
+            "was ist {query}",
+            "was sind {query}",
+            "was war {query}",
+            "was bedeutet {query}",
+            "wer ist {query}",
+            "wer war {query}",
+            "wann ist {query}",
+            "wann war {query}",
+            "wo ist {query}",
+            "warum ist {query}",
+            "warum {query}",
+            "wie funktioniert {query}",
+            "wie mache ich {query}",
+            "wie viel {query}",
+            "wie viele {query}",
+            "kannst du {query}",
+            "hilf mir mit {query}",
+            "ich möchte wissen {query}",
+            "ich will wissen {query}",
+            "gib mir {query}",
+            "über {query}",
+            "zu {query}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "AskIntent",
+          "delegationStrategy": "SKILL_RESPONSE",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "query",
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": { "elicitation": "Elicit.Slot.AskIntent.query" }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.AskIntent.query",
+        "variations": [
+          { "type": "PlainText", "value": "Was möchtest du fragen?" },
+          { "type": "PlainText", "value": "Was ist deine Frage?" }
+        ]
+      }
+    ]
+  }
+}
